@@ -49,6 +49,9 @@ define(
                         .fail(function () {
                                 self.isPlaceOrderActionAllowed(true);
                             }).done(function (orderID) {
+                                if(Array.isArray(orderID)){
+                                    orderID = orderID[0];
+                                }
                                 $.ajax({
                                     url: urlBuilder.build('onepay_payment_portal/order/international_placeOrder'),
                                     data: {'order_id': orderID},

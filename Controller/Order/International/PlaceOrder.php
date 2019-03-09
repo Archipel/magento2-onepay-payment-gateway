@@ -88,7 +88,11 @@ class PlaceOrder extends \Magento\Framework\App\Action\Action
      */
     private function onePayInternational()
     {
-        $orderId = (int)$this->getRequest()->getParam('order_id');
+        $orderId = $this->getRequest()->getParam('order_id');
+        if(is_array($orderId)){
+            $orderId = $orderId[0];
+        }
+        $orderId = intval($orderId);
         $orderObject = $this->orderFactory->create()->load($orderId);
         $paymentUrl = $this->onePayHelperData->getInternationalCardPaymentUrl();
         $accessCode = $this->onePayHelperData->getInternationalCardAccessCode();
