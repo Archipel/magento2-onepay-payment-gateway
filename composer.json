@@ -12,7 +12,7 @@
         "OnePay"
     ],
     "require": {
-        "php": "~5.6.0|7.0.2|~7.0.6|~7.0.13|~7.1.0|~7.2.0|~7.3.0",
+        "php": "~5.6.0|^7.0.2|^8.0",
         "php-cuong/magento2-module-core": "dev-master"
     },
     "type": "magento2-module",
